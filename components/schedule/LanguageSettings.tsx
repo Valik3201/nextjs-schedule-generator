@@ -1,3 +1,4 @@
+import { useLocale } from "../providers/LocaleProvider";
 import {
   Select,
   SelectContent,
@@ -5,7 +6,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { languageNames } from "../../helpers/helpers";
 import { CustomLocale } from "../../types/types";
 import { Label } from "@/components/ui/label";
 
@@ -20,18 +20,21 @@ const LanguageSettings: React.FC<LanguageSettingsProps> = ({
   handleLanguageChange,
   locales,
 }) => {
+  const { dictionary } = useLocale();
+  const { language: langLabel, selectLanguage, languages } = dictionary.setup;
+
   return (
     <div className="w-1/2 flex flex-col gap-2">
-      <Label className="text-sm font-bold">Language</Label>
+      <Label className="text-sm font-bold">{langLabel}</Label>
 
       <Select value={language} onValueChange={handleLanguageChange}>
         <SelectTrigger className="w-full">
-          <SelectValue placeholder="Выберите язык" />
+          <SelectValue placeholder={selectLanguage} />
         </SelectTrigger>
         <SelectContent>
           {Object.keys(locales).map((key) => (
             <SelectItem key={key} value={key}>
-              {languageNames[key]}
+              {languages[key]}
             </SelectItem>
           ))}
         </SelectContent>

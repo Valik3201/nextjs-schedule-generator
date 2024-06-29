@@ -1,3 +1,4 @@
+import { useLocale } from "../providers/LocaleProvider";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { DayOfWeek } from "../../types/types";
@@ -13,9 +14,13 @@ const DaySelector: React.FC<DaySelectorProps> = ({
   selectedDays,
   handleDayChange,
 }) => {
+  const {
+    setup: { selectDays, days },
+  } = useLocale().dictionary;
+
   return (
     <div className="flex flex-col gap-2">
-      <Label className="text-sm font-bold">Select days of the week</Label>
+      <Label className="text-sm font-bold">{selectDays}</Label>
 
       {daysOfWeek.map((day) => (
         <div key={day.value} className="flex items-center space-x-2">
@@ -29,7 +34,7 @@ const DaySelector: React.FC<DaySelectorProps> = ({
             htmlFor={`day-${day.value}`}
             className="text-sm font-medium leading-none"
           >
-            {day.name}
+            {days[day.name.toLowerCase()]}
           </label>
         </div>
       ))}

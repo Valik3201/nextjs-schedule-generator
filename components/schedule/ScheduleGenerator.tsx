@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "../providers/LocaleProvider";
 import { format, startOfWeek, endOfWeek, addDays } from "date-fns";
 import DateSelector from "./DateSelector";
 import DaySelector from "./DaySelector";
@@ -22,9 +23,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Hero from "./Hero";
 
 const ScheduleGenerator: React.FC = () => {
+  const {
+    setup: { title, subtitle, generateButton },
+  } = useLocale().dictionary;
+
   const [date, setDate] = useState<DateRange>({
     from: new Date(),
     to: addDays(new Date(), 20),
@@ -179,65 +183,88 @@ const ScheduleGenerator: React.FC = () => {
   };
 
   return (
-    <>
-      <Hero />
+    <div className="relative container md:px-20 lg:px-52">
+      <div
+        className="grid md:grid-cols-2 gap-16 min-h-svh pt-24 pb-16"
+        id="setup"
+      >
+        <Card className="h-fit">
+          <CardHeader>
+            <CardTitle className="font-serif">{title}</CardTitle>
+            <CardDescription>{subtitle}</CardDescription>
+          </CardHeader>
 
-      <div className="container md:px-20 lg:px-52">
-        <div className="grid md:grid-cols-2 gap-16 min-h-svh py-16" id="setup">
-          <Card className="h-fit">
-            <CardHeader>
-              <CardTitle className="font-serif">Setup</CardTitle>
-              <CardDescription>
-                Select parameters to generate your schedule
-              </CardDescription>
-            </CardHeader>
+          <CardContent className="space-y-4">
+            <DateSelector date={date} setDate={setDate} />
 
-            <CardContent className="space-y-4">
-              <DateSelector date={date} setDate={setDate} />
+            <DaySelector
+              daysOfWeek={daysOfWeek}
+              selectedDays={selectedDays}
+              handleDayChange={handleDayChange}
+            />
 
-              <DaySelector
-                daysOfWeek={daysOfWeek}
-                selectedDays={selectedDays}
-                handleDayChange={handleDayChange}
+            <div className="flex gap-4">
+              <DateFormatSettings
+                dateFormat={dateFormat}
+                handleDateFormatChange={handleDateFormatChange}
               />
-
-              <div className="flex gap-4">
-                <DateFormatSettings
-                  dateFormat={dateFormat}
-                  handleDateFormatChange={handleDateFormatChange}
-                />
-                <LanguageSettings
-                  language={language}
-                  handleLanguageChange={handleLanguageChange}
-                  locales={locales}
-                />
-              </div>
-
-              <RomanNumeralsToggle
-                useRomanNumerals={useRomanNumerals}
-                handleRomanNumeralsChange={handleRomanNumeralsChange}
+              <LanguageSettings
+                language={language}
+                handleLanguageChange={handleLanguageChange}
+                locales={locales}
               />
+            </div>
 
-              {showAlerts && date && (!date.from || !date.to) && (
-                <DatePeriodAlert />
-              )}
+            <RomanNumeralsToggle
+              useRomanNumerals={useRomanNumerals}
+              handleRomanNumeralsChange={handleRomanNumeralsChange}
+            />
 
-              {showAlerts && selectedDays.length < 1 && <DaysOfWeekAlert />}
-            </CardContent>
-            <CardFooter>
-              <Button onClick={handleGenerate} className="md:w-fit">
-                Generate
-                <Sparkles className="ms-2 h-4 w-4" />
-              </Button>
-            </CardFooter>
-          </Card>
+            {showAlerts && date && (!date.from || !date.to) && (
+              <DatePeriodAlert />
+            )}
 
-          {generatedDates.length > 0 && (
-            <GeneratedTable generatedDates={generatedDates} />
-          )}
-        </div>
+            {showAlerts && selectedDays.length < 1 && <DaysOfWeekAlert />}
+          </CardContent>
+          <CardFooter>
+            <Button onClick={handleGenerate} className="md:w-fit">
+              {generateButton}
+              <Sparkles className="ms-2 h-4 w-4" />
+            </Button>
+          </CardFooter>
+        </Card>
+
+        {generatedDates.length > 0 && (
+          <GeneratedTable generatedDates={generatedDates} />
+        )}
       </div>
-    </>
+
+      <div
+        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        aria-hidden="true"
+      >
+        <div
+          className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#DBFF75] to-[#36b49f] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] dark:from-[#36b49f]/30 dark:to-[#DBFF75]/30 dark:opacity-100"
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+        ></div>
+      </div>
+
+      <div
+        className="absolute inset-x-0 top-[calc(80%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(80%-30rem)]"
+        aria-hidden="true"
+      >
+        <div
+          className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#36b49f] to-[#DBFF75] opacity-50 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem] dark:from-[#36b49f]/30 dark:to-[#DBFF75]/30 dark:opacity-100"
+          style={{
+            clipPath:
+              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+          }}
+        ></div>
+      </div>
+    </div>
   );
 };
 
