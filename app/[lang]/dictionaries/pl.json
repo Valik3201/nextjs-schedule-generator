@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "title": "Już się nie martw {br} o {colorStart} ręczne wybieranie dat {colorEnd}",
+    "description": "Ta aplikacja jest narzędziem do tworzenia i wizualizacji strukturalnych danych na podstawie wybranych przez użytkownika zakresów dat oraz zestawów dni tygodnia. Umożliwia użytkownikom dostosowanie parametrów generowania danych i przeglądanie wyników w wygodnym formacie, gdzie każdy wpis reprezentuje określony okres czasu poczynając od określonej daty początkowej i zawiera wybrane dni tygodnia dla każdego z tych okresów.",
+    "example": "Na przykład, jeśli użytkownik wybierze zakres dat i wybierze poniedziałek i środę, harmonogram będzie wyświetlał numery tygodni oraz odpowiadające im daty dla tych poniedziałków i śród.",
+    "getStartedButton": "Rozpocznij",
+    "starButton": "Daj gwiazdkę projektowi"
+  },
+  "setup": {
+    "title": "Konfiguracja",
+    "subtitle": "Wybierz parametry do wygenerowania harmonogramu",
+    "datePeriod": "Okres dat",
+    "pickDate": "Wybierz datę",
+    "selectDays": "Wybierz dni tygodnia",
+    "days": {
+      "monday": "Poniedziałek",
+      "tuesday": "Wtorek",
+      "wednesday": "Środa",
+      "thursday": "Czwartek",
+      "friday": "Piątek",
+      "saturday": "Sobota",
+      "sunday": "Niedziela"
+    },
+    "dateFormat": "Format daty",
+    "digits": "Cyfry",
+    "romanNumerals": "Cyfry rzymskie",
+    "longFormat": "Długi format",
+    "shortFormat": "Krótki format",
+    "language": "Język",
+    "selectLanguage": "Wybierz język",
+    "languages": {
+      "en": "Angielski",
+      "pl": "Polski",
+      "ru": "Rosyjski",
+      "ua": "Ukraiński"
+    },
+    "useRomanNumerals": "Użyj cyfr rzymskich do okresów",
+    "generateButton": "Generuj",
+    "period": "Okres",
+    "dates": "Daty"
+  },
+  "alerts": {
+    "datePeriod": "Proszę wybrać okres daty",
+    "daysOfWeek": "Proszę wybrać dni tygodnia"
+  }
+}

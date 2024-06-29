@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "title": "Don't worry about {colorStart} manually {br} selecting dates {colorEnd} again",
+    "description": "This application is a utility for creating and visualizing structured data based on user-selected date ranges and sets of weekdays. It allows users to customize data generation parameters and view results in a convenient format, where each entry represents a specific time period starting from a specified initial date and includes the selected weekdays for each of these periods.",
+    "example": "For example, if a user selects a date range and chooses Monday and Wednesday, the schedule will display week numbers and the corresponding dates for these Mondays and Wednesdays.",
+    "getStartedButton": "Get Started",
+    "starButton": "Give a project star"
+  },
+  "setup": {
+    "title": "Setup",
+    "subtitle": "Select parameters to generate your schedule",
+    "datePeriod": "Date period",
+    "pickDate": "Pick a date",
+    "selectDays": "Select days of the week",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "dateFormat": "Date Format",
+    "digits": "Digits",
+    "romanNumerals": "Roman numerals",
+    "longFormat": "Long format",
+    "shortFormat": "Short format",
+    "language": "Language",
+    "selectLanguage": "Select language",
+    "languages": {
+      "en": "English",
+      "pl": "Polish",
+      "ru": "Russian",
+      "ua": "Ukrainian"
+    },
+    "useRomanNumerals": "Use Roman numerals for periods",
+    "generateButton": "Generate",
+    "period": "Period",
+    "dates": "Dates"
+  },
+  "alerts": {
+    "datePeriod": "Please select a date period",
+    "daysOfWeek": "Please select the days of the week"
+  }
+}
