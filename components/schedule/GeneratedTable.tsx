@@ -1,3 +1,4 @@
+import { useLocale } from "../providers/LocaleProvider";
 import {
   Table,
   TableBody,
@@ -14,17 +15,21 @@ interface GeneratedTableProps {
 }
 
 const GeneratedTable: React.FC<GeneratedTableProps> = ({ generatedDates }) => {
+  const {
+    setup: { period, dates },
+  } = useLocale().dictionary;
+
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Period</TableHead>
-          <TableHead>Dates</TableHead>
+          <TableHead>{period}</TableHead>
+          <TableHead>{dates}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {generatedDates.map(({ period, dates }, index) => (
-          <TableRow key={index}>
+          <TableRow key={index} className="capitalize">
             <TableCell>{period}</TableCell>
             <TableCell>{dates}</TableCell>
           </TableRow>

@@ -1,3 +1,4 @@
+import { useLocale } from "../providers/LocaleProvider";
 import {
   Select,
   SelectContent,
@@ -17,19 +18,22 @@ const DateFormatSettings: React.FC<DateFormatSettingsProps> = ({
   dateFormat,
   handleDateFormatChange,
 }) => {
+  const { dictionary } = useLocale();
+  const { setup: d } = dictionary;
+
   return (
     <div className="w-1/2 flex flex-col gap-2">
-      <Label className="text-sm font-bold">Date Format</Label>
+      <Label className="text-sm font-bold">{d.dateFormat}</Label>
 
       <Select value={dateFormat} onValueChange={handleDateFormatChange}>
         <SelectTrigger className="w-full">
           <SelectValue placeholder="Select date format" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="numeric">Digits</SelectItem>
-          <SelectItem value="roman">Roman numerals</SelectItem>
-          <SelectItem value="long">Long format</SelectItem>
-          <SelectItem value="short">Short format</SelectItem>
+          <SelectItem value="numeric">{d.digits}</SelectItem>
+          <SelectItem value="roman">{d.romanNumerals}</SelectItem>
+          <SelectItem value="long">{d.longFormat}</SelectItem>
+          <SelectItem value="short">{d.shortFormat}</SelectItem>
         </SelectContent>
       </Select>
     </div>

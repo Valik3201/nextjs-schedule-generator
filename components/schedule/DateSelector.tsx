@@ -1,4 +1,4 @@
-import React, { SetStateAction } from "react";
+import { useLocale } from "../providers/LocaleProvider";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
@@ -11,6 +11,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Label } from "@/components/ui/label";
+import { locales } from "@/helpers/helpers";
 
 interface DateSelectorProps {
   date: DateRange;
@@ -18,9 +19,15 @@ interface DateSelectorProps {
 }
 
 const DateSelector: React.FC<DateSelectorProps> = ({ date, setDate }) => {
+  const { locale: lang } = useLocale();
+  const { setup: d } = useLocale().dictionary;
+
+  const currentLocale = locales[lang].locale;
+  const dateFormat = lang === "en" ? "MMMM dd, y" : "dd MMMM y";
+
   return (
     <div className="flex flex-col gap-2">
-      <Label className="text-sm font-bold">Date period</Label>
+      <Label className="text-sm font-bold">{d.datePeriod}</Label>
 
       <Popover>
         <PopoverTrigger asChild>
@@ -28,7 +35,7 @@ const DateSelector: React.FC<DateSelectorProps> = ({ date, setDate }) => {
             id="date"
             variant={"outline"}
             className={cn(
-              "w-full justify-start text-left font-normal",
+              "w-full justify-start text-left font-normal capitalize",
               !date ? "" : "text-muted-foreground"
             )}
           >
@@ -36,18 +43,18 @@ const DateSelector: React.FC<DateSelectorProps> = ({ date, setDate }) => {
             {date?.from ? (
               date.to ? (
                 <>
-                  {format(date.from, "LLL dd, y")} -{" "}
-                  {format(date.to, "LLL dd, y")}
+                  {format(date.from, dateFormat, { locale: currentLocale })} -{" "}
+                  {format(date.to, dateFormat, { locale: currentLocale })}
                 </>
               ) : (
-                format(date.from, "LLL dd, y")
+                format(date.from, dateFormat, { locale: currentLocale })
               )
             ) : (
-              <span>Pick a date</span>
+              <span>{d.pickDate}</span>
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
+        <PopoverContent className="w-auto p-0 capitalize" align="start">
           <Calendar
             initialFocus
             mode="range"
@@ -55,6 +62,7 @@ const DateSelector: React.FC<DateSelectorProps> = ({ date, setDate }) => {
             selected={date}
             onSelect={setDate}
             numberOfMonths={2}
+            locale={currentLocale}
           />
         </PopoverContent>
       </Popover>
