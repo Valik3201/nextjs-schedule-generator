@@ -1,5 +1,5 @@
 import { ru, enGB, uk, pl } from "date-fns/locale";
-import { DayOfWeek, CustomLocale, LanguageKeys } from "../types/types";
+import { DayOfWeek, CustomLocale } from "../types/types";
 
 export const daysOfWeek: DayOfWeek[] = [
   { name: "Monday", value: 1 },
@@ -10,13 +10,6 @@ export const daysOfWeek: DayOfWeek[] = [
   { name: "Saturday", value: 6 },
   { name: "Sunday", value: 0 },
 ];
-
-export const languageNames: Record<LanguageKeys, string> = {
-  en: "English",
-  pl: "Polski",
-  ru: "Русский",
-  uk: "Українська",
-};
 
 export const locales: Record<string, CustomLocale> = {
   en: {
@@ -46,7 +39,7 @@ export const locales: Record<string, CustomLocale> = {
       short: "dd MMM yy",
     },
   },
-  uk: {
+  ua: {
     locale: uk,
     dateFormat: {
       numeric: "dd.MM.yyyy",
