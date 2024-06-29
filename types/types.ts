@@ -1,5 +1,4 @@
 import { Locale } from "date-fns";
-import { locales } from "../helpers/helpers";
 
 export interface DayOfWeek {
   name: string;
@@ -22,5 +21,3 @@ export interface GeneratedDate {
   period: string;
   dates: string;
 }
-
-export type LanguageKeys = keyof typeof locales;
