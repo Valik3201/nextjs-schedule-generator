@@ -4,6 +4,7 @@ import { Lora } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { getDictionary } from "./dictionaries";
 import { LocaleProvider } from "@/components/providers/LocaleProvider";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -45,9 +46,16 @@ export default async function RootLayout({
           lora.variable
         )}
       >
-        <LocaleProvider locale={lang} dictionary={dictionary}>
-          {children}
-        </LocaleProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <LocaleProvider locale={lang} dictionary={dictionary}>
+            {children}
+          </LocaleProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
