@@ -11,15 +11,15 @@
     "subtitle": "Выберите параметры для генерации вашего расписания",
     "datePeriod": "Диапазон дат",
     "pickDate": "Выберите дату",
-    "selectDays": "Выберите дни недели",
+    "selectDays": "Дни недели",
     "days": {
-      "monday": "Понедельник",
-      "tuesday": "Вторник",
-      "wednesday": "Среда",
-      "thursday": "Четверг",
-      "friday": "Пятница",
-      "saturday": "Суббота",
-      "sunday": "Воскресенье"
+      "monday": "Пн",
+      "tuesday": "Вт",
+      "wednesday": "Ср",
+      "thursday": "Чт",
+      "friday": "Пт",
+      "saturday": "Сб",
+      "sunday": "Вс"
     },
     "dateFormat": "Формат даты",
     "digits": "Цифры",

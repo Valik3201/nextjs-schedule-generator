@@ -38,7 +38,7 @@ export default async function RootLayout({
   const dictionary = await getDictionary(lang);
 
   return (
-    <html lang={lang} className="scroll-smooth">
+    <html lang={lang} className="scroll-smooth" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -46,12 +46,7 @@ export default async function RootLayout({
           lora.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <LocaleProvider locale={lang} dictionary={dictionary}>
             {children}
           </LocaleProvider>
