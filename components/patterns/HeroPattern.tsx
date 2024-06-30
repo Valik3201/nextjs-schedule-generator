@@ -1,4 +1,4 @@
-export default function Pattern() {
+export default function HeroPattern() {
   return (
     <div className="absolute inset-0 -z-10 mx-0 max-w-none">
       <div className="absolute left-1/2 top-0 ml-[-38rem] h-[30rem] w-[81.25rem] dark:[mask-image:linear-gradient(white,transparent)]">
