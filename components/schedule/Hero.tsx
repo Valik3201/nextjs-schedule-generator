@@ -4,7 +4,7 @@ import { useLocale } from "../providers/LocaleProvider";
 import { ArrowRight, Star } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import Pattern from "../patterns/Pattern";
+import Pattern from "../patterns/HeroPattern";
 
 export default function Hero() {
   const { dictionary } = useLocale();
