@@ -26,7 +26,7 @@ const DateFormatSettings: React.FC<DateFormatSettingsProps> = ({
       <Label className="text-sm font-bold">{d.dateFormat}</Label>
 
       <Select value={dateFormat} onValueChange={handleDateFormatChange}>
-        <SelectTrigger className="w-full">
+        <SelectTrigger className="w-full text-left">
           <SelectValue placeholder="Select date format" />
         </SelectTrigger>
         <SelectContent>
