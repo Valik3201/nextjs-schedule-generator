@@ -26,8 +26,11 @@ import {
 
 const ScheduleGenerator: React.FC = () => {
   const {
-    setup: { title, subtitle, generateButton },
-  } = useLocale().dictionary;
+    locale,
+    dictionary: {
+      setup: { title, subtitle, generateButton },
+    },
+  } = useLocale();
 
   const [date, setDate] = useState<DateRange>({
     from: new Date(),
@@ -35,7 +38,7 @@ const ScheduleGenerator: React.FC = () => {
   });
   const [selectedDays, setSelectedDays] = useState<number[]>([]);
   const [generatedDates, setGeneratedDates] = useState<GeneratedDate[]>([]);
-  const [language, setLanguage] = useState<string>("en");
+  const [language, setLanguage] = useState<string>(locale);
   const [dateFormat, setDateFormat] = useState<DateFormat>("short");
   const [useRomanNumerals, setUseRomanNumerals] = useState<boolean>(true);
   const [showAlerts, setShowAlerts] = useState<boolean>(false);
@@ -185,7 +188,7 @@ const ScheduleGenerator: React.FC = () => {
   return (
     <div className="relative container md:px-20 lg:px-52">
       <div
-        className="grid md:grid-cols-2 gap-16 min-h-svh pt-24 pb-16"
+        className="grid md:grid-cols-2 gap-8 lg:gap-16 min-h-svh pt-24 pb-16"
         id="setup"
       >
         <Card className="h-fit">
@@ -227,7 +230,7 @@ const ScheduleGenerator: React.FC = () => {
             {showAlerts && selectedDays.length < 1 && <DaysOfWeekAlert />}
           </CardContent>
           <CardFooter>
-            <Button onClick={handleGenerate} className="md:w-fit">
+            <Button onClick={handleGenerate} className="w-full md:w-fit">
               {generateButton}
               <Sparkles className="ms-2 h-4 w-4" />
             </Button>
