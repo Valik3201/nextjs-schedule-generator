@@ -11,15 +11,15 @@
     "subtitle": "Виберіть параметри для генерації вашого розкладу",
     "datePeriod": "Діапазон дат",
     "pickDate": "Виберіть дату",
-    "selectDays": "Виберіть дні тижня",
+    "selectDays": "Дні тижня",
     "days": {
-      "monday": "Понеділок",
-      "tuesday": "Вівторок",
-      "wednesday": "Середа",
-      "thursday": "Четвер",
-      "friday": "П’ятниця",
-      "saturday": "Субота",
-      "sunday": "Неділя"
+      "monday": "Пн",
+      "tuesday": "Вт",
+      "wednesday": "Ср",
+      "thursday": "Чт",
+      "friday": "Пт",
+      "saturday": "Сб",
+      "sunday": "Нд"
     },
     "dateFormat": "Формат дати",
     "digits": "Цифри",

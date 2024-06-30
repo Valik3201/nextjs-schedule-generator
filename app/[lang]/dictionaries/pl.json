@@ -11,15 +11,15 @@
     "subtitle": "Wybierz parametry do wygenerowania harmonogramu",
     "datePeriod": "Okres dat",
     "pickDate": "Wybierz datę",
-    "selectDays": "Wybierz dni tygodnia",
+    "selectDays": "Dni tygodnia",
     "days": {
-      "monday": "Poniedziałek",
-      "tuesday": "Wtorek",
-      "wednesday": "Środa",
-      "thursday": "Czwartek",
-      "friday": "Piątek",
-      "saturday": "Sobota",
-      "sunday": "Niedziela"
+      "monday": "Pon",
+      "tuesday": "Wto",
+      "wednesday": "Śro",
+      "thursday": "Czw",
+      "friday": "Pią",
+      "saturday": "Sob",
+      "sunday": "Nie"
     },
     "dateFormat": "Format daty",
     "digits": "Cyfry",
