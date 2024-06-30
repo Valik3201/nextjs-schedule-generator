@@ -39,15 +39,17 @@ const DateSelector: React.FC<DateSelectorProps> = ({ date, setDate }) => {
               !date ? "" : "text-muted-foreground"
             )}
           >
-            <CalendarIcon className="mr-2 h-4 w-4" />
+            <CalendarIcon className="mr-2 h-4 w-4 min-h-4 min-w-4" />
             {date?.from ? (
               date.to ? (
-                <>
+                <span className="w-96 text-ellipsis truncate">
                   {format(date.from, dateFormat, { locale: currentLocale })} -{" "}
                   {format(date.to, dateFormat, { locale: currentLocale })}
-                </>
+                </span>
               ) : (
-                format(date.from, dateFormat, { locale: currentLocale })
+                <span className="w-96 text-ellipsis truncate">
+                  {format(date.from, dateFormat, { locale: currentLocale })}
+                </span>
               )
             ) : (
               <span>{d.pickDate}</span>

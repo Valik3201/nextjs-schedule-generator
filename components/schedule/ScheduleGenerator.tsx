@@ -185,10 +185,20 @@ const ScheduleGenerator: React.FC = () => {
     setUseRomanNumerals(checked);
   };
 
+  const handleDelete = (index: number) => {
+    const updatedDates = generatedDates.filter((_, i) => i !== index);
+    setGeneratedDates(
+      updatedDates.map((date, idx) => ({
+        ...date,
+        period: useRomanNumerals ? romanize(idx + 1) : (idx + 1).toString(),
+      }))
+    );
+  };
+
   return (
     <div className="relative container md:px-20 lg:px-52">
       <div
-        className="grid md:grid-cols-2 gap-8 lg:gap-16 min-h-svh pt-24 pb-16"
+        className="grid md:grid-cols-2 gap-8 xl:gap-16 min-h-svh pt-24 pb-16"
         id="setup"
       >
         <Card className="h-fit">
@@ -238,7 +248,10 @@ const ScheduleGenerator: React.FC = () => {
         </Card>
 
         {generatedDates.length > 0 && (
-          <GeneratedTable generatedDates={generatedDates} />
+          <GeneratedTable
+            generatedDates={generatedDates}
+            onDelete={handleDelete}
+          />
         )}
       </div>
 
