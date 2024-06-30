@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <>
       <div className="container md:px-20 lg:px-52">
-        <div className="relative flex flex-col justify-center gap-8 h-svh">
+        <div className="flex flex-col justify-center gap-8 h-svh">
           <h1
             className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-extrabold tracking-tight text-center"
             dangerouslySetInnerHTML={{ __html: title }}
