@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { i18n, type Locale } from "@/i18n-config";
@@ -18,6 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useLocale } from "../providers/LocaleProvider";
 
 const languages: Record<Locale, string> = {
   en: "English",
@@ -28,21 +29,10 @@ const languages: Record<Locale, string> = {
 
 const LanguageSwitcher: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState<Locale | "">("");
+
+  const { locale: value } = useLocale();
 
   const pathName = usePathname();
-
-  useEffect(() => {
-    if (pathName) {
-      const segments = pathName.split("/");
-      const locale = segments[1] as Locale;
-      if (i18n.locales.includes(locale)) {
-        setValue(locale);
-      } else {
-        setValue(i18n.defaultLocale);
-      }
-    }
-  }, [pathName]);
 
   const redirectedPathName = (locale: Locale) => {
     if (!pathName) return "/";
@@ -58,13 +48,14 @@ const LanguageSwitcher: React.FC = () => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-36 justify-between pl-6"
+          className="w-10 md:w-32 justify-between ps-2.5 md:ps-4"
         >
-          {languages[value as Locale] || ""}
-          <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <span className="md:hidden uppercase">{value}</span>
+          <span className="hidden md:block">{languages[value as Locale]}</span>
+          <ChevronDown className="hidden md:block ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-36 p-0">
+      <PopoverContent className="w-32 p-0">
         <Command>
           <CommandList>
             <CommandGroup>
