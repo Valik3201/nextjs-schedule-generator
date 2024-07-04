@@ -6,22 +6,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { CustomLocale } from "../../types/types";
+import { locales } from "@/lib/locales";
 import { Label } from "@/components/ui/label";
+import { useSettings } from "../providers/SettingsProvider";
 
-interface LanguageSettingsProps {
-  language: string;
-  handleLanguageChange: (value: string) => void;
-  locales: Record<string, CustomLocale>;
-}
-
-const LanguageSettings: React.FC<LanguageSettingsProps> = ({
-  language,
-  handleLanguageChange,
-  locales,
-}) => {
+export default function LanguageSettings() {
   const { dictionary } = useLocale();
   const { language: langLabel, selectLanguage, languages } = dictionary.setup;
+
+  const { language, handleLanguageChange } = useSettings();
 
   return (
     <div className="w-1/2 flex flex-col gap-2">
@@ -41,6 +34,4 @@ const LanguageSettings: React.FC<LanguageSettingsProps> = ({
       </Select>
     </div>
   );
-};
-
-export default LanguageSettings;
+}

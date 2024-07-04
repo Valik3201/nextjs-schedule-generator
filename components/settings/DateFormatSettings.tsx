@@ -6,20 +6,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { DateFormat } from "../../types/types";
 import { Label } from "@/components/ui/label";
+import { useSettings } from "../providers/SettingsProvider";
 
-interface DateFormatSettingsProps {
-  dateFormat: DateFormat;
-  handleDateFormatChange: (value: string) => void;
-}
-
-const DateFormatSettings: React.FC<DateFormatSettingsProps> = ({
-  dateFormat,
-  handleDateFormatChange,
-}) => {
+export default function DateFormatSettings() {
   const { dictionary } = useLocale();
   const { setup: d } = dictionary;
+
+  const { dateFormat, handleDateFormatChange } = useSettings();
 
   return (
     <div className="w-1/2 flex flex-col gap-2">
@@ -38,6 +32,4 @@ const DateFormatSettings: React.FC<DateFormatSettingsProps> = ({
       </Select>
     </div>
   );
-};
-
-export default DateFormatSettings;
+}
