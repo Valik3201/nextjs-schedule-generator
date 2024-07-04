@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { i18n, type Locale } from "@/i18n-config";
 import { Check, ChevronDown } from "lucide-react";
+import { useLocale } from "../providers/LocaleProvider";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -18,16 +19,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useLocale } from "../providers/LocaleProvider";
 
-const languages: Record<Locale, string> = {
-  en: "English",
-  pl: "Polish",
-  ru: "Russian",
-  ua: "Ukrainian",
-};
-
-const LanguageSwitcher: React.FC = () => {
+export default function LanguageSwitcher() {
   const [open, setOpen] = useState(false);
 
   const { locale: value } = useLocale();
@@ -39,6 +32,13 @@ const LanguageSwitcher: React.FC = () => {
     const segments = pathName.split("/");
     segments[1] = locale;
     return segments.join("/");
+  };
+
+  const languages: Record<Locale, string> = {
+    en: "English",
+    pl: "Polish",
+    ru: "Russian",
+    ua: "Ukrainian",
   };
 
   return (
@@ -81,6 +81,4 @@ const LanguageSwitcher: React.FC = () => {
       </PopoverContent>
     </Popover>
   );
-};
-
-export default LanguageSwitcher;
+}
