@@ -1,10 +1,5 @@
 import { Locale } from "date-fns";
 
-export interface DayOfWeek {
-  name: string;
-  value: number;
-}
-
 export interface CustomLocale {
   locale: Locale;
   dateFormat: {
