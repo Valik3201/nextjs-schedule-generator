@@ -1,15 +1,5 @@
 import { ru, enGB, uk, pl } from "date-fns/locale";
-import { DayOfWeek, CustomLocale } from "../types/types";
-
-export const daysOfWeek: DayOfWeek[] = [
-  { name: "Monday", value: 1 },
-  { name: "Tuesday", value: 2 },
-  { name: "Wednesday", value: 3 },
-  { name: "Thursday", value: 4 },
-  { name: "Friday", value: 5 },
-  { name: "Saturday", value: 6 },
-  { name: "Sunday", value: 0 },
-];
+import { CustomLocale } from "../types/types";
 
 export const locales: Record<string, CustomLocale> = {
   en: {
@@ -48,32 +38,4 @@ export const locales: Record<string, CustomLocale> = {
       short: "dd MMM yy",
     },
   },
-};
-
-export const romanize = (num: number): string => {
-  const romanNumerals = [
-    "I",
-    "II",
-    "III",
-    "IV",
-    "V",
-    "VI",
-    "VII",
-    "VIII",
-    "IX",
-    "X",
-    "XI",
-    "XII",
-    "XIII",
-    "XIV",
-    "XV",
-    "XVI",
-    "XVII",
-    "XVIII",
-    "XIX",
-    "XX",
-    "XXI",
-    "XXII",
-  ];
-  return romanNumerals[num - 1] || num.toString();
 };
