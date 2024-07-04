@@ -1,21 +1,23 @@
 import { useLocale } from "../providers/LocaleProvider";
+import { useSettings } from "../providers/SettingsProvider";
 import { Label } from "@/components/ui/label";
-import { DayOfWeek } from "../../types/types";
 
-interface DaySelectorProps {
-  daysOfWeek: DayOfWeek[];
-  selectedDays: number[];
-  handleDayChange: (dayValue: number) => void;
-}
-
-const DaySelector: React.FC<DaySelectorProps> = ({
-  daysOfWeek,
-  selectedDays,
-  handleDayChange,
-}) => {
+export default function DaySelector() {
   const {
     setup: { selectDays, days },
   } = useLocale().dictionary;
+
+  const { selectedDays, handleDayChange } = useSettings();
+
+  const daysOfWeek = [
+    { name: "monday", value: 1 },
+    { name: "tuesday", value: 2 },
+    { name: "wednesday", value: 3 },
+    { name: "thursday", value: 4 },
+    { name: "friday", value: 5 },
+    { name: "saturday", value: 6 },
+    { name: "sunday", value: 0 },
+  ];
 
   return (
     <div className="flex flex-col gap-2">
@@ -40,13 +42,11 @@ const DaySelector: React.FC<DaySelectorProps> = ({
                 day.value === 1 ? "rounded-l-full border-s" : ""
               } ${day.value === 0 ? "rounded-r-full border-e" : ""}`}
             >
-              {days[day.name.toLowerCase()]}
+              {days[day.name]}
             </span>
           </label>
         ))}
       </div>
     </div>
   );
-};
-
-export default DaySelector;
+}

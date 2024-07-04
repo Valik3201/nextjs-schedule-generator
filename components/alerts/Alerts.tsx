@@ -2,7 +2,7 @@ import { useLocale } from "../providers/LocaleProvider";
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
-export const DatePeriodAlert: React.FC = () => {
+export function DatePeriodAlert() {
   const {
     alerts: { datePeriod },
   } = useLocale().dictionary;
@@ -13,9 +13,9 @@ export const DatePeriodAlert: React.FC = () => {
       <AlertDescription>{datePeriod}</AlertDescription>
     </Alert>
   );
-};
+}
 
-export const DaysOfWeekAlert: React.FC = () => {
+export function DaysOfWeekAlert() {
   const {
     alerts: { daysOfWeek },
   } = useLocale().dictionary;
@@ -26,4 +26,4 @@ export const DaysOfWeekAlert: React.FC = () => {
       <AlertDescription>{daysOfWeek}</AlertDescription>
     </Alert>
   );
-};
+}

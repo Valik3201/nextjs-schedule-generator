@@ -1,19 +1,14 @@
 import { useLocale } from "../providers/LocaleProvider";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { useSettings } from "../providers/SettingsProvider";
 
-interface RomanNumeralsToggleProps {
-  useRomanNumerals: boolean;
-  handleRomanNumeralsChange: (checked: boolean) => void;
-}
-
-const RomanNumeralsToggle: React.FC<RomanNumeralsToggleProps> = ({
-  useRomanNumerals,
-  handleRomanNumeralsChange,
-}) => {
+export default function RomanNumeralsToggle() {
   const {
     setup: { useRomanNumerals: useRoman },
   } = useLocale().dictionary;
+
+  const { useRomanNumerals, handleRomanNumeralsChange } = useSettings();
 
   return (
     <div className="flex items-center space-x-2">
@@ -25,6 +20,4 @@ const RomanNumeralsToggle: React.FC<RomanNumeralsToggleProps> = ({
       <Label htmlFor="romanize">{useRoman}</Label>
     </div>
   );
-};
-
-export default RomanNumeralsToggle;
+}

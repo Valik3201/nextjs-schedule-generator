@@ -1,6 +1,8 @@
-import Hero from "@/components/schedule/Hero";
-import ScheduleGenerator from "../../components/schedule/ScheduleGenerator";
+import { SettingsProvider } from "@/components/providers/SettingsProvider";
+import { ScheduleProvider } from "@/components/providers/ScheduleProvider";
 import AppBar from "@/components/appbar/AppBar";
+import Hero from "@/components/hero/Hero";
+import ScheduleGenerator from "@/components/schedule/ScheduleGenerator";
 import Footer from "@/components/footer/Footer";
 
 export default function Home() {
@@ -8,7 +10,13 @@ export default function Home() {
     <>
       <AppBar />
       <Hero />
-      <ScheduleGenerator />
+
+      <SettingsProvider>
+        <ScheduleProvider>
+          <ScheduleGenerator />
+        </ScheduleProvider>
+      </SettingsProvider>
+
       <Footer />
     </>
   );

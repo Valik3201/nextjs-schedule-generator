@@ -15,17 +15,17 @@ interface LocaleProviderProps {
   dictionary: Record<string, any>;
 }
 
-export const LocaleProvider = ({
+export function LocaleProvider({
   children,
   locale,
   dictionary,
-}: LocaleProviderProps) => {
+}: LocaleProviderProps) {
   return (
     <LocaleContext.Provider value={{ locale, dictionary }}>
       {children}
     </LocaleContext.Provider>
   );
-};
+}
 
 export const useLocale = (): LocaleContextProps => {
   const context = useContext(LocaleContext);

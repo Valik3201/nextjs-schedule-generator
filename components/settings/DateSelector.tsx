@@ -1,8 +1,9 @@
-import { useLocale } from "../providers/LocaleProvider";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
-import { DateRange } from "react-day-picker";
+import { useLocale } from "../providers/LocaleProvider";
+import { useSettings } from "../providers/SettingsProvider";
 import { cn } from "@/lib/utils";
+import { locales } from "@/lib/locales";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -11,16 +12,12 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Label } from "@/components/ui/label";
-import { locales } from "@/helpers/helpers";
 
-interface DateSelectorProps {
-  date: DateRange;
-  setDate: any;
-}
-
-const DateSelector: React.FC<DateSelectorProps> = ({ date, setDate }) => {
+export default function DateSelector() {
   const { locale: lang } = useLocale();
   const { setup: d } = useLocale().dictionary;
+
+  const { date, setDate } = useSettings();
 
   const currentLocale = locales[lang].locale;
   const dateFormat = lang === "en" ? "MMMM dd, y" : "dd MMMM y";
@@ -70,6 +67,4 @@ const DateSelector: React.FC<DateSelectorProps> = ({ date, setDate }) => {
       </Popover>
     </div>
   );
-};
-
-export default DateSelector;
+}
