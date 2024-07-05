@@ -50,6 +50,7 @@ export default function LanguageSwitcher() {
           aria-expanded={open}
           className="w-10 md:w-32 justify-between ps-2.5 md:ps-4"
         >
+          <span className="sr-only">Language</span>
           <span className="md:hidden uppercase">{value}</span>
           <span className="hidden md:block">{languages[value as Locale]}</span>
           <ChevronDown className="hidden md:block ml-2 h-4 w-4 shrink-0 opacity-50" />
