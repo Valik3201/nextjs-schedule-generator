@@ -20,7 +20,10 @@ export default function DateFormatSettings() {
       <Label className="text-sm font-bold">{d.dateFormat}</Label>
 
       <Select value={dateFormat} onValueChange={handleDateFormatChange}>
-        <SelectTrigger className="w-full text-left">
+        <SelectTrigger
+          className="w-full text-left"
+          aria-label="Select date format"
+        >
           <SelectValue placeholder="Select date format" />
         </SelectTrigger>
         <SelectContent>

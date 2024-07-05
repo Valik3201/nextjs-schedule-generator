@@ -21,7 +21,7 @@ export default function LanguageSettings() {
       <Label className="text-sm font-bold">{langLabel}</Label>
 
       <Select value={language} onValueChange={handleLanguageChange}>
-        <SelectTrigger className="w-full">
+        <SelectTrigger className="w-full" aria-label="Select language">
           <SelectValue placeholder={selectLanguage} />
         </SelectTrigger>
         <SelectContent>
