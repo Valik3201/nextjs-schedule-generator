@@ -4,7 +4,7 @@ import { LocaleProvider } from "@/components/providers/LocaleProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { getDictionary } from "./dictionaries";
 import { inter, lora } from "./fonts";
-import { SupportedLanguages } from "./generateStaticParams";
+import { SupportedLanguages } from "@/types/types";
 import "./globals.css";
 
 export const metadata: Metadata = {
