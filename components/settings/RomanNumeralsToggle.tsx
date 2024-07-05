@@ -16,6 +16,7 @@ export default function RomanNumeralsToggle() {
         id="romanize"
         checked={useRomanNumerals}
         onCheckedChange={handleRomanNumeralsChange}
+        aria-label="Romanize"
       />
       <Label htmlFor="romanize">{useRoman}</Label>
     </div>
