@@ -16,3 +16,5 @@ export interface GeneratedDate {
   period: string;
   dates: string;
 }
+
+export type SupportedLanguages = "en" | "pl" | "ua" | "ru";
