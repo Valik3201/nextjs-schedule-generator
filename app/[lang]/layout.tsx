@@ -10,7 +10,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Schedule Generator",
   description:
-    "Create personalized schedules with ease! Schedule Generator by Next.js and React.",
+    "Create personalized schedules with ease! Select date ranges and days of the week, and visualize structured data in a clear format.",
 };
 
 export default async function RootLayout({
