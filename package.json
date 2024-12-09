@@ -30,7 +30,7 @@
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
     "romans": "^2.0.16",
-    "tailwind-merge": "^2.5.4",
+    "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
