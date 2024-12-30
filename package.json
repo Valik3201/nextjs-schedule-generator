@@ -27,7 +27,7 @@
     "next": "^14.2.15",
     "next-themes": "^0.3.0",
     "react": "^18",
-    "react-day-picker": "^8.10.1",
+    "react-day-picker": "^9.5.0",
     "react-dom": "^18",
     "romans": "^3.0.0",
     "tailwind-merge": "^2.5.5",
